@@ -1,0 +1,196 @@
+/*
+  Orden para definir estilos para ganar rendimiento
+  1. Position (float)
+  2. Box model (Display - )
+  3. Typographic
+  4. Visual (border- border radius)
+  5. Miscelanius (Cosas experimentales que no todos los navegadores entienden y necesitamos de prefijos)
+*/
+
+:root {
+  /* Colors */
+  --blue-color: #5466b1;
+  --red-color: #eb4559;
+  --green-color: #0b8457;
+  --orange-color: #dd6b4d;
+  --black-color: #000;
+
+  /* Typography */
+  --semi-bold: 600;
+  --extra-bold: 800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #070c24;
+}
+
+body.black-theme {
+  --blue-color: #000;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 900px;
+  height: 600px;
+  margin: 20px;
+  background-color: #fff;
+}
+
+.container .imgBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background-color: var(--blue-color);
+}
+
+.container .imgBox::before {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 8em;
+  font-weight: var(--extra-bold);
+  color: #000;
+  content: 'Nike';
+  opacity: 0.1;
+}
+
+.container .imgBox img {
+  position: relative;
+  left: -50px;
+  width: 700px;
+  transform: rotate(-30deg);
+}
+
+.container .details {
+  display: block;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.container .details h2 {
+  margin-top: 45px;
+  margin-bottom: 25px;
+  font-size: 2.5em;
+  line-height: 0.8em;
+  color: #444;
+}
+
+.container .details h2 span {
+  font-size: 0.4em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+}
+
+.container .details p {
+  max-width: 85%;
+  margin-left: 15%;
+  margin-bottom: 35px;
+  color: #333;
+  font-size: 15px;
+}
+
+.colorsContainer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.colorsContainer .color {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.color.black {
+  background-color: var(--black-color);
+}
+
+.color.green {
+  background-color: var(--green-color);
+}
+
+.color.blue {
+  background-color: var(--blue-color);
+}
+
+.color.orange {
+  background-color: var(--orange-color);
+}
+
+.color.red {
+  background-color: var(--red-color);
+}
+
+.container .details h3 {
+  float: left;
+  font-size: 2.5em;
+  color: #2a2a2a;
+}
+
+.container .details button {
+  margin-top: 5px;
+  float: right;
+  padding: 15px 20px;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  text-transform: uppercase;
+  border-radius: 40px;
+  background-color: var(--blue-color);
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .container {
+    height: auto;
+  }
+
+  .container .imgBox {
+    height: auto;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .container .imgBox img {
+    left: initial;
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+
+  .container .details {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container .details p {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
