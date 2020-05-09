@@ -121,6 +121,17 @@ body.black-theme {
   border-radius: 50%;
   margin-right: 10px;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: .4s ease-in-out;
+}
+
+.colorsContainer .color:hover,
+.colorsContainer .color:focus {
+  transform: scale(1.1);
+  -webkit-box-shadow: 0px 0px 37px -5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 37px -5px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 37px -5px rgba(0,0,0,0.4);
 }
 
 .color.black {
